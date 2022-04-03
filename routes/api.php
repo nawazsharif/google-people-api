@@ -27,6 +27,6 @@ Route::group(['prefix' => 'v1'], function () {
 //    Route::post('contacts/update', [PeopleApiContoller::class,'update']);
 //
 ////    Route::get('contacts', [PeopleApiContoller::class,'index']);
-//    Route::post('contacts/distroy/{id}', [PeopleApiContoller::class,'distroy']);
+    Route::post('people/delete', [PeopleApiContoller::class,'delete']);
 });
 

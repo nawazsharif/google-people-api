@@ -17,7 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-//Route::get('getAuthGoogle', [\App\Http\Controllers\PeopleApiContoller::class, 'index'])->name('contacts');
+Route::group(['middleware' => 'web'], function () {
+    Route::get('getAuthGoogle', [\App\Http\Controllers\PeopleApiContoller::class, 'index'])->name('get-contacts');
+    Route::get('/cred', [\App\Http\Controllers\PeopleApiContoller::class, 'cred'])->name('cred');
+    Route::get('/code', [\App\Http\Controllers\PeopleApiContoller::class, 'code'])->name('code');
+});
 
 //Route::get('/getAuthGoogle/', array('as' => 'get-contacts', 'uses' => 'Controller@getAuthGoogle'));
 
